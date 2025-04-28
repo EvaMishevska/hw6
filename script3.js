@@ -19,7 +19,7 @@ function sortWords (str) {
         for(let i = 0; i < numder.length; i++) {
             let userNumber  = numder[i];
             if (userNumber >= '0' && userNumber <= '9') {
-                return(userNumber);  
+                return(userNumber);
             }
         }
     }

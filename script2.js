@@ -13,7 +13,12 @@ let personData = [
   {userName: 'Паша', gender: 'men',age: 45,},
 ];
 
-let ryyAge= personData.reduce((sum, current) => sum + current.age, 0);
+let ryyAge = personData.reduce(function ( sum, current,) {
+  return sum + current.age;
+},0);
+
+
+// let ryyAge = personData.reduce((sum, current) => sum + current.age, 0);
 let resultAge = ryyAge / personData.length;
 
 console.log(resultAge);
