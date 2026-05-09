@@ -4,21 +4,38 @@
 // массив [0,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1] преобразуется в [4,7,2,4]
 // массив [0,0,1,1,1,1,0,1,1,1] преобразуется в [2,4,1,3]
 
-let arr = [0,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1];
-let result = [];
-let count = 0;
-let current = arr[0]
+// let arr = [0,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1];
+// let result = [];
+// let count = 0;
+// let current = arr[0]
     
 
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === current) {
-        count++;
-    } else {
-        result.push(count);
-        current = arr[i];
-        count = 1;
-    }
-}
+// for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === current) {
+//         count++;
+//     } else {
+//         result.push(count);
+//         current = arr[i];
+//         count = 1;
+//     }
+// }
 
-result.push(count);
-console.log(result);
+// result.push(count);
+// console.log(result);
+
+
+let arr = [0,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1];
+
+let count = arrNumber => {
+  if(arrNumber.length === 0) return []; //ПРОВЕРКА НЕ ПУСТОЙ ЛИ МАССИВ
+
+  return arrNumber.reduce((acc, value, index, original) => {
+    if(index === 0 || value !== original[index - 1]) { //ЕСЛИ ТЕКУЩИЙ ЭЛЕМЕНТ НЕ РАВЕН ПРЕВЕДУЩЕМУ, НАЧИНАЕМ НОВЫЙ СЧЕТЧИК
+      acc.push(1);
+    } else {
+      acc[acc.length - 1]++;//ЕСЛИ ТАКОЙ ЖЕ УВЕЛИЧИВАЕМ СЧЁТЧИК
+    }
+    return acc;
+  }, [])
+};
+console.log(count(arr))
